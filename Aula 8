@@ -1,0 +1,93 @@
+
+# EXERCÍCIO SLIDE 164
+
+"""
+def funcao():
+    palavra = input("Insira uma string qualquer: ")
+    letra = input("Escolha uma letra: ")
+    qtd_letras = palavra.count(letra)
+    print(qtd_letras)
+
+funcao()
+"""
+
+"""
+def funcao(palavra, letra):
+    qtd_letras = palavra.count(letra)
+    print(qtd_letras)
+
+
+palavra_dig = input("Insira uma string qualquer: ")
+letra_dig = input("Escolha uma letra: ")
+funcao(palavra_dig, letra_dig)
+"""
+
+"""
+def checar_ocorrencias(texto, checar_letra):
+    numero_ocorrencias = 0
+    for indice in range(len(texto)):
+        letra = texto[indice]
+        if checar_letra == letra:
+            numero_ocorrencias = numero_ocorrencias + 1
+    return numero_ocorrencias
+
+
+texto_usuario = input("Digite um texto: ")
+letra_usuario = input("Digite uma letra: ")
+ocorrencias = checar_ocorrencias(texto_usuario, letra_usuario)
+print("A letra '{}' está presente {} vezes no texto '{}'.".format(letra_usuario, ocorrencias, texto_usuario))
+"""
+
+
+"""
+Exercício 24
+Nome: Data de Nascimento
+Objetivo: Criar uma aplicação que receba uma data de nascimento e exiba a quantidade de dias que a pessoa já viveu e o dia da semana que ela nasceu.
+Dificuldade: Intermediário
+1 - Importe o método 'datetime' da biblioteca 'datetime': from datetime import datetime
+2 - Peça para a pessoa digitar a data de nascimento no formato DD/MM/AAAA, exemplo: 27/11/1993;
+3 - Quebre o valor digitado utilizando o método split() utilizando a barra '/' como separador;
+4 - Confira se na nova lista gerada, o primeiro elemento corresponde ao dia, o segundo ao mês e o terceiro ao ano. Armazene esses valores em variáveis separadas chamadas 'dia', 'mes' e 'ano', respectivamente. Certifique-se de que você converteu os valores digitados em números inteiros utilizado o método int();
+5 - Utilizando a biblioteca datetime, crie um novo objeto de data utilizando os valores obtidos;
+6 - Crie uma função que recebe um objeto de datetime e retorne o número exato de dias que a pessoa viveu. Utilize: 'data.days';
+7 - Exiba o número obtido através da função na tela (o print deve estar fora da função).
+8 - Crie uma lista com os dias da semana, onde 0 = Segunda e 6 = Domingo
+9 - Exiba na tela o dia da semana em que a pessoa nasceu (por extenso)
+"""
+
+"""
+from datetime import datetime
+
+
+def dias_vividos(data):
+    data_atual = datetime.now()
+    dias_vividos = data_atual - data
+    return dias_vividos.days
+
+
+data_nascimento = input("Informe sua data de nascimento no formato DD/MM/AAAA: ")
+lista_data = data_nascimento.split("/")
+dia = int(lista_data[0])
+mes = int(lista_data[1])
+ano = int(lista_data[2])
+data_nascimento_objeto = datetime(ano, mes, dia)
+dia_semana_nascimento = datetime.weekday(data_nascimento_objeto)
+lista_dias_semana = ["Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado", "Domingo"]
+dia_semana = lista_dias_semana[dia_semana_nascimento]
+
+print(dia_semana)
+print(dias_vividos(data_nascimento_objeto))
+"""
+
+"""
+def contar_numeros_pequenos(numeros):
+    numeros_pequenos = 0
+    for numero in numeros:
+        if numero < 10:
+            numeros_pequenos = numeros_pequenos + numero
+    return numeros_pequenos
+
+
+lista = [1, 53, 57, 342, 675, 2, 6, 2, 64, 757, 5]
+print("O soma dos números menores que 10 na lista é {}.".format(contar_numeros_pequenos(lista)))
+"""
